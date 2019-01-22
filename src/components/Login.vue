@@ -77,9 +77,12 @@ export default {
     // 处理注册
     handlerReg() {
       this.$refs["form"].validate(valid => {
-        console.log(valid);
         if (valid) {
-          alert("submit");
+          this.$store.commit("setUserLoginState", true);
+          this.$message({
+            message: "登陆成功",
+            type: "success"
+          });
         } else {
           return false;
         }
