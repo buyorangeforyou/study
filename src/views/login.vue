@@ -92,14 +92,32 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .login {
   margin-top: 200px;
+  .login-content {
+    width: 950px;
+    margin: 0 auto;
+  }
+  img {
+    width: 450px;
+    height: 250px;
+    margin: 0 100px 0 0;
+    float: left;
+  }
+  /* btn */
+  .login-btn-send {
+    float: left;
+  }
+  .login-btn-reg {
+    float: right;
+  }
+  .login-form {
+    width: 400px;
+    float: left;
+  }
 }
-.login-content {
-  width: 950px;
-  margin: 0 auto;
-}
+
 /* 清除浮动 */
 .login::after,
 .login-btn::after,
@@ -109,22 +127,5 @@ export default {
   content: " ";
   height: 0;
   visibility: hidden;
-}
-.login .login-form {
-  width: 400px;
-  float: left;
-}
-.login img {
-  width: 450px;
-  height: 250px;
-  margin: 0 100px 0 0;
-  float: left;
-}
-/* btn */
-.login-btn-send {
-  float: left;
-}
-.login-btn-reg {
-  float: right;
 }
 </style>
