@@ -33,29 +33,12 @@
           <el-tab-pane label="商品详情" name="shop-detail">商品详情</el-tab-pane>
           <el-tab-pane label="商品评论" name="shop-commemt" class="shop-comment">
             <ul>
-              <li>
+              <li v-for="(item,index) of commentList" :key="index">
                 <h3>
-                  131********
-                  <i>2018年10月1日</i>
+                  {{item.tel}}
+                  <i>{{item.date}}</i>
                 </h3>
-                <p>
-                  双旦节买的y7000
-                  1.物流非常快 当天就收到了！
-                  2.笔记本颜值没让我失望 确实蛮好看的 背光键盘挺酷
-                  3.鲁大师硬件检测和跑分 不管准不准 还是挺满意
-                </p>
-              </li>
-              <li>
-                <h3>
-                  131********
-                  <i>2018年10月1日</i>
-                </h3>
-                <p>
-                  双旦节买的y7000
-                  1.物流非常快 当天就收到了！
-                  2.笔记本颜值没让我失望 确实蛮好看的 背光键盘挺酷
-                  3.鲁大师硬件检测和跑分 不管准不准 还是挺满意
-                </p>
+                <p>{{item.comment}}</p>
               </li>
             </ul>
           </el-tab-pane>
@@ -105,11 +88,21 @@ export default {
   data() {
     return {
       buySum: 1,
-      activeName: "shop-commemt"
+      activeName: "shop-commemt",
+      commentList: []
     };
   },
+  mounted() {
+    this.getCommentList();
+  },
   methods: {
-    handleChange() {}
+    handleChange() {},
+    // 获取评论列表
+    getCommentList() {
+      this.$http.get("/comment.php").then(response => {
+        this.commentList = response.data;
+      });
+    }
   }
 };
 </script>
