@@ -11,6 +11,10 @@ const routers = [
     path: "/login",
     meta: { title: "登陆" },
     component: resolve => require(["./views/login.vue"], resolve)
+  },
+  {
+    path: "/shopInfo",
+    component: resolve => require(["./views/shopInfo.vue"], resolve)
   }
 ];
 
