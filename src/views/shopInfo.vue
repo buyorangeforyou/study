@@ -2,16 +2,26 @@
   <div class="shop">
     <div class="shop-container">
       <div class="container-left">
+        <el-tag type="info" style="width:100%">联想(Lenovo)拯救者Y7000 15.6英寸游戏笔记本电脑</el-tag>
         <!-- 顶部商品信息 -->
         <div class="shop-info">
           <div class="shop-left">
             <img src="../assets/images/shop01.jpg">
           </div>
           <div class="shop-right">
-            <h2>
-              联想(Lenovo)拯救者Y7000 15.6英寸游戏笔记本电脑
-              <strong>￥234 元</strong>
-            </h2>
+            <div class="shop-price">
+              <strong>市场价：￥234 元</strong>
+              <el-popover
+                placement="bottom"
+                width="50px"
+                trigger="click"
+                style="float:right"
+                >
+                <img src="../assets/images/qrCode.png" alt="">
+
+                <el-button slot="reference"><i class="el-icon-goods"></i></el-button>
+              </el-popover>
+            </div>
             <p>商品简介</p>
             <div class="buy-number">购买数量：
               <el-input-number
@@ -167,14 +177,11 @@ export default {
   .shop-right {
     flex: 1;
     padding: 10px;
-    // 商品标题
-    h2 {
-      font-size: 18px;
-      font-weight: 600;
-      strong {
-        font-size: 23px;
-      }
+    // 商品价格
+    .shop-price{
+
     }
+    
     // 商品简介
     p {
       height: 80px;
