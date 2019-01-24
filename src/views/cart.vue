@@ -17,13 +17,7 @@
               <p>{{item.title}}</p>
             </div>
             <div class="product-sum">
-              <el-input-number
-                v-model="item.sum"
-                controls-position="right"
-                @change="handleChange"
-                :min="1"
-                :max="10"
-              ></el-input-number>
+              <el-input-number v-model="item.sum" controls-position="right" :min="1" :max="10"></el-input-number>
               <i>X</i>
               <strong>￥{{item.price}}</strong>
             </div>
@@ -53,7 +47,7 @@
           <strong>￥{{calcShopAllPrice}}</strong>
         </div>
         <div class="shop-pay-btn">
-          <el-button type="success">立即支付</el-button>
+          <el-button type="success" @click="goCalcBalancePage()">立即支付</el-button>
         </div>
       </div>
     </div>
@@ -95,13 +89,19 @@ export default {
     }
   },
   methods: {
-    handleChange() {}
+    goCalcBalancePage() {
+      this.$router.push({
+        path: "/calcBalacne"
+      });
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .cart {
+  margin: 20px;
+
   .cart-content {
     display: flex;
   }

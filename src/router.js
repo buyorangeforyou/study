@@ -19,6 +19,11 @@ const routers = [
   {
     path: "/cart",
     component: resolve => require(["./views/cart.vue"], resolve)
+  },
+  {
+    path:"/calcBalacne",
+    component: resolve => require(["./views/calcBalance.vue"], resolve)
+    
   }
 ];
 
