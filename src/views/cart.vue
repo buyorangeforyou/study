@@ -24,11 +24,13 @@
             <div class="product-price">
               <strong>￥{{item.sum * item.price}}</strong>
             </div>
-            <div class="product-opt"></div>
+            <div class="product-opt">
+              <el-button type="primary" icon="el-icon-delete" @click="handerShopRemove(index)"></el-button>
+            </div>
           </li>
         </ul>
         <div class="cart-btn">
-          <el-button type="danger">清空购物车</el-button>
+          <el-button type="danger" @click="handerShopRemoveAll()">清空购物车</el-button>
           <el-button type="success">清空购物车</el-button>
         </div>
       </div>
@@ -89,10 +91,20 @@ export default {
     }
   },
   methods: {
+    // 跳转到结算页面
     goCalcBalancePage() {
       this.$router.push({
         path: "/calcBalacne"
       });
+    },
+    // 移除商品
+    handerShopRemove(index) {
+      this.cartList.splice(index, 1);
+      console.log(this.cartList);
+    },
+    // 清空购物车
+    handerShopRemoveAll(index) {
+      this.cartList = [];
     }
   }
 };
