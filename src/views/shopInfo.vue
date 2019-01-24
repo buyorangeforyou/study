@@ -11,15 +11,11 @@
           <div class="shop-right">
             <div class="shop-price">
               <strong>市场价：￥234 元</strong>
-              <el-popover
-                placement="bottom"
-                width="50px"
-                trigger="click"
-                style="float:right"
-                >
-                <img src="../assets/images/qrCode.png" alt="">
-
-                <el-button slot="reference"><i class="el-icon-goods"></i></el-button>
+              <el-popover placement="bottom" width="50px" trigger="click" style="float:right">
+                <img src="../assets/images/qrCode.png" alt>
+                <el-button slot="reference">
+                  <i class="el-icon-goods"></i>
+                </el-button>
               </el-popover>
             </div>
             <p>商品简介</p>
@@ -34,7 +30,7 @@
             </div>
             <div class="buy-btn">
               <el-button type="warning">加入购物车</el-button>
-              <el-button type="danger">立即购买</el-button>
+              <el-button type="danger" @click="goCartPage()">立即购买</el-button>
             </div>
           </div>
         </div>
@@ -112,6 +108,12 @@ export default {
       this.$http.get("/comment.php").then(response => {
         this.commentList = response.data;
       });
+    },
+    // 跳转到购物车页面
+    goCartPage() {
+      this.$router.push({
+        path: "/cart"
+      });
     }
   }
 };
@@ -178,10 +180,9 @@ export default {
     flex: 1;
     padding: 10px;
     // 商品价格
-    .shop-price{
-
+    .shop-price {
     }
-    
+
     // 商品简介
     p {
       height: 80px;

@@ -15,6 +15,10 @@ const routers = [
   {
     path: "/shopInfo",
     component: resolve => require(["./views/shopInfo.vue"], resolve)
+  },
+  {
+    path: "/cart",
+    component: resolve => require(["./views/cart.vue"], resolve)
   }
 ];
 
